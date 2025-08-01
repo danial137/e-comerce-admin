@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Font fallback for better loading experience */
+@font-face {
+  font-family: 'Poppins-fallback';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: local('Arial');
+}
+
 @custom-variant dark (&:is(.dark *));
 
 body,html,
