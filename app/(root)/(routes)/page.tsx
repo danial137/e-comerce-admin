@@ -1,14 +1,24 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { UserButton } from '@clerk/nextjs'
-import { Model } from '@/components/ui/model'
+import { Model } from '@/components/model'
+import { useStoreModel } from '@/hooks/use-store-model'
 const SetupPage = () => {
+    const onOpen = useStoreModel((state) => state.onOpen)
+    const isOpen = useStoreModel((state) => state.isOpen)
+
+    useEffect(() => {
+        if (!isOpen) {
+            onOpen()
+
+        }
+    }, [isOpen,onOpen])
+
     return (
         <div>
-            Store model 
-            <Model title="Store Model" description="This is a store model" isOpen={true} onClose={() => {}}>
-                This is a store model
-            </Model>
+
+            Store model
+
         </div>
     )
 }

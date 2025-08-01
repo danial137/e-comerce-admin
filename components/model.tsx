@@ -10,8 +10,15 @@ interface ModelProps {
     children?: React.ReactNode
 }
 export const Model = ({ title, description, isOpen, onClose, children }: ModelProps) => {
+
+    const onChange = (open: boolean) => { 
+        if (!open) {
+            onClose();
+        }
+    }
+
     return (
-        <Dialog open={isOpen} >
+        <Dialog open={isOpen} onOpenChange={onChange}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>{title}</DialogTitle>

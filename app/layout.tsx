@@ -10,6 +10,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
+import { ModelProvider } from "@/providers/model-provider";
 
 
 const poppins = Poppins({
@@ -34,7 +35,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${poppins.className}  antialiased`}
-      >
+        >
+          <ModelProvider/>
         {children}
       </body>
       </html>
