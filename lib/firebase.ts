@@ -1,5 +1,7 @@
 
-
+import { getApp, getApps, initializeApp } from 'firebase/app';
+import{getFirestore} from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -9,6 +11,9 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
+
+
+const app = getApp.length>0?getApp():initializeApp(firebaseConfig);
 
 // Initialize Firebase
 
