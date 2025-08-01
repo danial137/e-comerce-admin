@@ -14,13 +14,7 @@ const SetupPage = () => {
         }
     }, [isOpen,onOpen])
 
-    return (
-        <div>
-
-            Store model
-
-        </div>
-    )
+    return null
 }
 
 export default SetupPage
