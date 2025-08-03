@@ -11,6 +11,7 @@ import {
   UserButton,
 } from '@clerk/nextjs'
 import { ModelProvider } from "@/providers/model-provider";
+import { ToastProvider } from "@/providers/toast-provider";
 
 
 const poppins = Poppins({
@@ -42,7 +43,8 @@ export default function RootLayout({
       <body
         className={`${poppins.className}  antialiased`}
         >
-          <ModelProvider/>
+          <ModelProvider />
+          <ToastProvider/>
         {children}
       </body>
       </html>

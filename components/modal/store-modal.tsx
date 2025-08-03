@@ -10,6 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import axios from "axios"
+import toast from "react-hot-toast"
 const formSchema = z.object({
     name: z.string().min(3, { message: "store name should be minimum 3 charachter" })
 })
@@ -27,10 +28,12 @@ export const StoreModal = () => {
     const onSubmit = async (value: z.infer<typeof formSchema>) => {
         try {
             setIsLoading(true)
+            throw new Error("XYZ") // Simulate an error for testing purposes
             const response = await axios.post('/api/stores', value)
-            console.log(response)
+            toast.success("Store created successfully")
+            
         } catch (error) {
-            console.log(error)
+            toast.error("Something went wrong")
         } finally {
             setIsLoading(false)
 
