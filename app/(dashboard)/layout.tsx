@@ -23,10 +23,13 @@ const DashboardLayout = async ({children,params}:DashboardLayoutProps) => {
     const storeSnap = await getDocs(
         query(
             collection(db, "stores"),
-            where("userId", "==", userId)
+            where("userId", "==", userId),
+            where("id","==", params.storeId)
         )
 )
-    return (<div></div>);
+    return (<div>
+        
+    </div>);
 }
 
 export default DashboardLayout;
